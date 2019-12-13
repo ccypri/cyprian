@@ -1,0 +1,31 @@
+f0=440;
+t0=1/f0;
+fe1=8000;
+A=1;
+d=0.1;
+t1=0:1/fe1:d;
+M=2^(11);
+
+fe2=500;
+t2=0:1/fe2:d;
+
+s1=A*sin(2*pi*f0*t1);
+ffts1=abs(fft(s1,M));
+
+s2=A*sin(2*pi*f0*t2);
+ffts2=abs(fft(s2,M));
+
+figure(1)
+plot(t1,s1);
+figure(2)
+plot(ffts1);
+figure(3)
+plot(t2,s2)
+figure(4)
+plot(ffts2);
+figure(5)
+plot(t1,s1);
+hold on
+plot(t2,s2,'mo')
+hold off;
+
